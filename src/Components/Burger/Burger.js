@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Burger.css';
+import './burger.scss';
 
 const burger = props => {
     let ingredients = props.ingredients.map(ingredient => {
