@@ -1,11 +1,9 @@
 import React from 'react';
-import Wrapper from '../hoc/Wrapper';
 
 const layout = props => (
-    <Wrapper>
-        <div>future components</div>
+    <React.Fragment>
         <div>{props.children}</div>
-    </Wrapper>
+    </React.Fragment>
 );
 
 export default layout;

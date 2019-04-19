@@ -1,17 +1,19 @@
 import React from 'react';
 
+import Button from '../UI/Button/Button';
+
 const addIngredients = props => {
-    const types = ['bacon', 'meat', 'salad', 'cheese', 'breadMiddle'];
+    const types = ['bacon', 'meat', 'salad', 'cheese', 'bread'];
 
     const buttons = types.map(button => {
         return (
-            <button onClick={() => props.clicked(button)} key={button}>
+            <Button clicked={() => props.clicked(button)} key={button} type="ingredient-btn">
                 add {button}
-            </button>
+            </Button>
         );
     });
 
-    return <div>{buttons}</div>;
+    return <div className="add-ingridients">{buttons}</div>;
 };
 
 export default addIngredients;

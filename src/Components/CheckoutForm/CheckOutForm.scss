@@ -1,0 +1,20 @@
+.check-out-form {
+    width: 100%;
+    margin-top: 50px;
+    text-align: center;
+
+    form {
+        width: 40%;
+        margin: 0 auto;
+        text-align: center;
+
+        input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            display: block;
+            margin: 10px 0;
+        }
+    }
+}

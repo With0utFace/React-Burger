@@ -1,31 +1,31 @@
 import React, { Component } from 'react';
-
-import Wrapper from '../../Components/hoc/Wrapper';
-import Burger from '../../Components/Burger/';
+import Burger from '../../Components/Burger/Burger';
 import AddIngredients from '../../Components/AddIngredients/add-ingredients';
+import Button from '../../Components/UI/Button/Button';
+
+import './BurgerBuilder.scss';
 
 export default class BurgerBuilder extends Component {
+    INGREDIENT_PRICES = {
+        meat: 20,
+        bacon: 15,
+        cheese: 10,
+        salad: 5,
+        bread: 3
+    };
+
     state = {
         ingredients: [],
-        total: 0,
-        prices: {
-            meat: 20,
-            bacon: 15,
-            cheese: 10,
-            salad: 5,
-            breadMiddle: 3
-        }
+        total: 0
     };
 
     calcTotalSum = () => {
-        const { prices, ingredients } = this.state;
+        const { ingredients } = this.state;
         const prevState = [...ingredients];
 
         const newTotal = prevState.reduce((current, el) => {
-            return (current += prices[el.type]);
+            return (current += this.INGREDIENT_PRICES[el.type]);
         }, 0);
-
-        console.log(newTotal);
         this.setState({ total: newTotal });
     };
 
@@ -53,14 +53,33 @@ export default class BurgerBuilder extends Component {
         setTimeout(this.calcTotalSum, 4);
     };
 
+    checkIfDisabled = () => {
+        return this.state.total === 0 ? true : false;
+    };
+
+    sendOrderHandler = () => {
+        this.props.history.push('/checkout', this.state);
+    };
+
     render() {
         const { total, ingredients } = this.state;
         return (
-            <Wrapper>
+            <div className="burger-builder">
                 <Burger ingredients={ingredients} remove={this.removeIngredientHandler} />
                 <AddIngredients clicked={this.addIngredientHandler} />
-                {total}
-            </Wrapper>
+                <div className="checkout-summary">
+                    <div className="total-price">
+                        Total price: <strong>{total}</strong>
+                    </div>
+                    <Button
+                        type="success"
+                        disabled={this.checkIfDisabled()}
+                        clicked={this.sendOrderHandler}
+                    >
+                        checkout
+                    </Button>
+                </div>
+            </div>
         );
     }
 }

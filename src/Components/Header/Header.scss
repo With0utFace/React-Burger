@@ -1,0 +1,17 @@
+.header {
+    background-color: rgb(231, 175, 71);
+
+    a {
+        text-decoration: none;
+        color: #fff;
+        display: inline-block;
+        padding: 20px 40px;
+        border-bottom: 5px solid transparent;
+        transition: 0.4s;
+    }
+    a.active,
+    a:hover {
+        border-bottom: 5px solid rgb(15, 240, 82);
+        background-color: rgba(0, 0, 0, 0.287);
+    }
+}
