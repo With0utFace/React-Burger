@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import Burger from '../../Components/Burger/Burger';
-import AddIngredients from '../../Components/AddIngredients/add-ingredients';
-import Button from '../../Components/UI/Button/Button';
 import { connect } from 'react-redux';
 import * as actionType from '../../store/actions';
+
+import Burger from '../../Components/Burger/Burger';
+import Button from '../../Components/UI/Button/Button';
+import AddIngredients from '../../Components/AddIngredients/add-ingredients';
 
 import './BurgerBuilder.scss';
 

@@ -5,7 +5,7 @@ import Button from '../UI/Button/Button';
 
 import './CheckOutForm.scss';
 
-export default class CheckoutForm extends Component {
+class CheckoutForm extends Component {
     state = {
         ingredients: null,
         customerInformation: {
@@ -18,7 +18,10 @@ export default class CheckoutForm extends Component {
 
     componentDidMount() {
         const historyState = this.props.history.location.state;
-        this.setState({ ingredients: historyState.ingredients, burgerPrice: historyState.total });
+        this.setState({
+            ingredients: historyState.ingredients,
+            burgerPrice: historyState.total
+        });
     }
 
     onChange = event => {
@@ -67,7 +70,8 @@ export default class CheckoutForm extends Component {
                 </div>
             );
         }
-
         return <div>no data</div>;
     }
 }
+
+export default CheckoutForm;

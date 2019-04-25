@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import axios from '../../Axios/Axios';
 
-import Order from './OneOrder/OneOrder';
 import Loader from '../UI/Loader/Loader';
 import ErrorHanlder from '../UI/ErrorHandler/ErrorHandler';
 import ErrorTooltip from '../UI/ErrorTooltip/ErrorTooltip';
 import Button from '../UI/Button/Button';
 
+import Order from './OneOrder/OneOrder';
+
 import './Orders.scss';
 
-export default class Orders extends Component {
+class Orders extends Component {
     state = {
         burgerInfomation: null,
         LoadingError: false,
@@ -82,3 +83,5 @@ export default class Orders extends Component {
         return <div className="orders">{userOrders}</div>;
     }
 }
+
+export default Orders;
