@@ -1,0 +1,18 @@
+.clicking-error {
+    position: absolute;
+    left: calc(100% + 20px);
+    width: 180px;
+    background-color: #fff;
+    border: 3px solid rgb(255, 39, 39);
+    border-radius: 7px;
+    padding: 5px;
+    z-index: 10;
+    opacity: 0;
+    color: rgb(255, 77, 77);
+    visibility: hidden;
+    transition: 0.6s;
+}
+.clicking-error.active {
+    opacity: 1;
+    visibility: visible;
+}

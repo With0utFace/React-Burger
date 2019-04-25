@@ -4,6 +4,7 @@ import axios from '../../Axios/Axios';
 import Order from './OneOrder/OneOrder';
 import Loader from '../UI/Loader/Loader';
 import ErrorHanlder from '../UI/ErrorHandler/ErrorHandler';
+import ErrorTooltip from '../UI/ErrorTooltip/ErrorTooltip';
 import Button from '../UI/Button/Button';
 
 import './Orders.scss';
@@ -11,12 +12,12 @@ import './Orders.scss';
 export default class Orders extends Component {
     state = {
         burgerInfomation: null,
-        LoadingError: false
+        LoadingError: false,
+        activeError: false
     };
 
     componentDidMount() {
         axios.get('/orders.json').then(response => {
-            console.log(response);
             this.setState({ burgerInfomation: response.data });
         });
     }
@@ -30,7 +31,10 @@ export default class Orders extends Component {
     };
 
     orderRemoveErrorHandler = () => {
-        console.log('1');
+        this.setState({ activeError: true });
+        setTimeout(() => {
+            this.setState({ activeError: false });
+        }, 3000);
     };
 
     showError = () => {
@@ -54,7 +58,6 @@ export default class Orders extends Component {
         );
 
         if (!burgerInfomation) {
-            setTimeout(this.showError, 10000);
             return this.state.LoadingError ? errorHandler : <Loader />;
         }
 
@@ -69,6 +72,9 @@ export default class Orders extends Component {
                         clicked={() => this.removeOrderHandler(order)}
                         orderRemoveError={this.orderRemoveErrorHandler}
                     />
+                    <ErrorTooltip isActive={this.state.activeError}>
+                        Sorry you can't remove ingriendts from active orders
+                    </ErrorTooltip>
                 </div>
             );
         });
