@@ -19,13 +19,20 @@ class Orders extends Component {
 
     componentDidMount() {
         axios.get('/orders.json').then(response => {
+            if (!response.data) {
+                this.setState({ LoadingError: true });
+            }
+
             this.setState({ burgerInfomation: response.data });
         });
     }
 
     removeOrderHandler = id => {
-        axios.delete('/orders/' + id + '.json').then(res => {
+        axios.delete(`/orders/${id}.json`).then(res => {
             axios.get('/orders.json').then(response => {
+                if (!response.data) {
+                    this.setState({ LoadingError: true });
+                }
                 this.setState({ burgerInfomation: response.data });
             });
         });
@@ -42,7 +49,7 @@ class Orders extends Component {
         this.setState({ LoadingError: true });
     };
 
-    goToMain = () => {
+    pushToMain = () => {
         this.props.history.push('/');
     };
 
@@ -52,7 +59,7 @@ class Orders extends Component {
         const errorHandler = (
             <ErrorHanlder>
                 <p>Looks like you have no orders yet</p>
-                <Button type="primary" clicked={this.goToMain}>
+                <Button type="primary" clicked={this.pushToMain}>
                     go back and create them
                 </Button>
             </ErrorHanlder>
@@ -66,7 +73,7 @@ class Orders extends Component {
             return (
                 <div key={order} className="one-order">
                     <div className="order-price">
-                        Burger Price: {burgerInfomation[order].burgerPrice}
+                        Burger Price: {burgerInfomation[order].price}
                     </div>
                     <Order
                         ingredients={burgerInfomation[order].ingredients}
