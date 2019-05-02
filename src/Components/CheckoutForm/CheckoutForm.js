@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import axios from '../../Axios/Axios';
 import { connect } from 'react-redux';
+import * as actionType from '../../store/actions';
 
 import Button from '../UI/Button/Button';
+import ErrorHanlder from '../UI/ErrorHandler/ErrorHandler';
 
 import './CheckOutForm.scss';
 
@@ -12,18 +14,32 @@ class CheckoutForm extends Component {
             name: '',
             city: '',
             email: ''
-        }
+        },
+        validated: false,
+        noIngredients: false
     };
 
     onChange = event => {
-        const prevState = { ...this.state.customerInformation };
+        const { customerInformation } = this.state;
+
+        const prevState = { ...customerInformation };
         const validation = this.formValidationHandler(event.target.type);
+        if (!event.target.value.match(validation)) {
+            event.target.className = 'error-input';
+        }
         if (event.target.value.match(validation)) {
-            console.log(2);
+            event.target.className = 'validated-input';
             prevState[event.target.name] = event.target.value;
+            this.setState({ customerInformation: prevState });
         }
 
-        this.setState({ customerInformation: prevState });
+        let validatedInputs = Object.keys(customerInformation).filter(el => {
+            return customerInformation[el] === '';
+        });
+
+        if (validatedInputs.length === 0) {
+            this.setState({ validated: true });
+        }
     };
 
     formValidationHandler(type) {
@@ -33,7 +49,7 @@ class CheckoutForm extends Component {
                 pattern = /[a-zA-Z]*/g;
                 break;
             case 'email':
-                pattern = /.+@.*/g;
+                pattern = /.{3,}?@.+[.].+/g;
                 break;
 
             default:
@@ -46,50 +62,70 @@ class CheckoutForm extends Component {
 
     orderBurger = event => {
         event.preventDefault();
-        axios
-            .post('/orders.json/', {
-                ingredients: this.props.ingredients,
-                customer: this.state.customerInformation,
-                price: this.props.price
-            })
-            .then(response => {
-                this.props.history.push('/orders');
-            });
+
+        if (this.props.ingredients.length === 0) {
+            this.setState({ noIngredients: true });
+        }
+        if (this.state.validated && this.props.ingredients.length > 0) {
+            axios
+                .post('/orders.json/', {
+                    ingredients: this.props.ingredients,
+                    customer: this.state.customerInformation,
+                    price: this.props.price
+                })
+                .then(res => {
+                    this.props.clearIngredients();
+                    this.props.history.push('/orders');
+                });
+        }
+    };
+
+    pushToMain = () => {
+        this.props.history.push('/');
     };
 
     render() {
-        const { customerInformation } = this.state;
-        if (this.props.ingredients) {
+        const { customerInformation, noIngredients } = this.state;
+
+        if (noIngredients) {
             return (
-                <div className="check-out-form">
-                    <form onSubmit={this.orderBurger}>
-                        <input
-                            type="text"
-                            placeholder="Enter your name"
-                            value={customerInformation.name}
-                            name="name"
-                            onChange={this.onChange}
-                        />
-                        <input
-                            type="text"
-                            placeholder="Enter your City"
-                            value={customerInformation.city}
-                            name="city"
-                            onChange={this.onChange}
-                        />
-                        <input
-                            type="email"
-                            placeholder="Enter your Email"
-                            value={customerInformation.street}
-                            name="email"
-                            onChange={this.onChange}
-                        />
-                        <Button type="primary">Order Burger</Button>
-                    </form>
-                </div>
+                <ErrorHanlder>
+                    <p>Sorry but you can't order a burger, without ingredients</p>
+                    <Button type="primary" clicked={this.pushToMain}>
+                        go back and add some
+                    </Button>
+                </ErrorHanlder>
             );
         }
-        return <div>no data</div>;
+
+        return (
+            <div className="check-out-form">
+                <form onSubmit={this.orderBurger}>
+                    <input
+                        type="text"
+                        placeholder="Enter your name"
+                        value={customerInformation.name}
+                        name="name"
+                        onChange={this.onChange}
+                    />
+                    <input
+                        type="text"
+                        placeholder="Enter your City"
+                        value={customerInformation.city}
+                        name="city"
+                        onChange={this.onChange}
+                    />
+                    <input
+                        type="email"
+                        placeholder="Enter your Email"
+                        value={customerInformation.street}
+                        name="email"
+                        onChange={this.onChange}
+                    />
+                    <Button type="primary">Order Burger</Button>
+                </form>
+            </div>
+        );
     }
 }
 
@@ -100,4 +136,13 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps)(CheckoutForm);
+const mapDispathToProps = dispatch => {
+    return {
+        clearIngredients: () => dispatch({ type: actionType.CLEAR_STATE })
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispathToProps
+)(CheckoutForm);
