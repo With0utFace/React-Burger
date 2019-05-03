@@ -8,7 +8,7 @@ import Button from '../UI/Button/Button';
 
 import Order from './OneOrder/OneOrder';
 
-import './Orders.scss';
+import '../../Styles/Components/Orders.scss';
 
 class Orders extends Component {
     state = {

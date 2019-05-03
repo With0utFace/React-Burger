@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './ErrorHandler.scss';
+import '../../../Styles/UI/ErrorHandler.scss';
 
 const errorHandler = props => <div className="error">{props.children}</div>;
 

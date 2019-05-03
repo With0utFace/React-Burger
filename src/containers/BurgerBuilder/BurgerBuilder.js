@@ -6,7 +6,7 @@ import Burger from '../../Components/Burger/Burger';
 import Button from '../../Components/UI/Button/Button';
 import AddIngredients from '../../Components/AddIngredients/add-ingredients';
 
-import './BurgerBuilder.scss';
+import '../../Styles/Containers/BurgerBuilder.scss';
 
 class BurgerBuilder extends Component {
     randomKey = () =>

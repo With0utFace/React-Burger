@@ -6,7 +6,7 @@ import * as actionType from '../../store/actions';
 import Button from '../UI/Button/Button';
 import ErrorHanlder from '../UI/ErrorHandler/ErrorHandler';
 
-import './CheckOutForm.scss';
+import '../../Styles/Components/CheckOutForm.scss';
 
 class CheckoutForm extends Component {
     state = {

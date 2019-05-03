@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './ErrorTooltip.scss';
+import '../../../Styles/UI/ErrorTooltip.scss';
 
 const errorTooltip = props => (
     <div className={`clicking-error ${props.isActive ? 'active' : null}`}>

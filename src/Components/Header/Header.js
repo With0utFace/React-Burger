@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import './Header.scss';
+import '../../Styles/Components/Header.scss';
 
 const header = props => (
     <div className="header">

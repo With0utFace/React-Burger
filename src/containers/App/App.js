@@ -9,7 +9,7 @@ import Orders from '../../Components/Orders/Orders';
 
 import Header from '../../Components/Header/Header';
 
-import './App.css';
+import '../../Styles/Containers/App.scss';
 
 class App extends Component {
     render() {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Loader.scss';
+import '../../../Styles/UI/Loader.scss';
 
 const loader = () => (
     <div className="lds-roller">
