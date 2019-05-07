@@ -1,4 +1,5 @@
-import * as actionTypes from './actions/types/actionTypes';
+import * as actionTypes from '../actions/types/actionTypes';
+import updatedState from '../utility-functions';
 
 const initialState = {
     ingredients: [],
@@ -18,34 +19,25 @@ const INGREDIENT_PRICES = {
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.ADD_INGREDIENTS:
-            return {
-                ...state,
+            return updatedState(state, {
                 ingredients: [...state.ingredients, action.ingredient],
                 totalPrice: state.totalPrice + INGREDIENT_PRICES[action.ingredient.type]
-            };
+            });
         case actionTypes.REMOVE_INGREDIENT:
-            return {
-                ...state,
+            return updatedState(state, {
                 ingredients: state.ingredients.filter(
                     ingredient => ingredient.id !== action.ingredient.id
                 ),
                 totalPrice: state.totalPrice - INGREDIENT_PRICES[action.ingredient.type]
-            };
+            });
         case actionTypes.CLEAR_STATE:
-            return {
-                ...state,
+            return updatedState(state, {
                 ingredients: []
-            };
+            });
         case actionTypes.GET_ORDERS:
-            return {
-                ...state,
-                orders: action.ingredients
-            };
+            return updatedState(state, { orders: action.ingredients });
         case actionTypes.LOADED:
-            return {
-                ...state,
-                loading: false
-            };
+            return updatedState(state, { loading: false });
         default:
             return state;
     }
