@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actionType from '../../Store/actions';
+import { addIngredients, removeIngredient } from '../../Store/actions';
 
 import Burger from '../../Components/Burger/Burger';
 import Button from '../../Components/UI/Button/Button';
@@ -63,10 +63,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addIngredients: ingredient =>
-            dispatch({ type: actionType.ADD_INGREDIENTS, ingredient: ingredient }),
-        removeIngredient: ingredient =>
-            dispatch({ type: actionType.REMOVE_INGREDIENT, ingredient: ingredient })
+        addIngredients: ingredient => dispatch(addIngredients(ingredient)),
+        removeIngredient: ingredient => dispatch(removeIngredient(ingredient))
     };
 };
 

@@ -1,3 +1,5 @@
 export const ADD_INGREDIENTS = 'ADD_INGREDIENTS';
 export const REMOVE_INGREDIENT = 'REMOVE_INGREDIENT';
 export const CLEAR_STATE = 'CLEAR_STATE';
+export const GET_ORDERS = 'GET_ORDERS';
+export const LOADED = 'LOADED';

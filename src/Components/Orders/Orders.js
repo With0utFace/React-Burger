@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import axios from '../../Axios/Axios';
+import { connect } from 'react-redux';
+import { fetchOrdersToState, removeOrder } from '../../Store/actions/';
 
 import Loader from '../UI/Loader/Loader';
 import ErrorHanlder from '../UI/ErrorHandler/ErrorHandler';
@@ -12,30 +13,15 @@ import '../../Styles/Components/Orders.scss';
 
 class Orders extends Component {
     state = {
-        burgerInfomation: null,
-        LoadingError: false,
         activeError: false
     };
 
     componentDidMount() {
-        axios.get('/orders.json').then(response => {
-            if (!response.data) {
-                this.setState({ LoadingError: true });
-            }
-
-            this.setState({ burgerInfomation: response.data });
-        });
+        this.props.getOrders();
     }
 
     removeOrderHandler = id => {
-        axios.delete(`/orders/${id}.json`).then(res => {
-            axios.get('/orders.json').then(response => {
-                if (!response.data) {
-                    this.setState({ LoadingError: true });
-                }
-                this.setState({ burgerInfomation: response.data });
-            });
-        });
+        this.props.removeOrder(id);
     };
 
     orderRemoveErrorHandler = () => {
@@ -45,16 +31,12 @@ class Orders extends Component {
         }, 3000);
     };
 
-    showError = () => {
-        this.setState({ LoadingError: true });
-    };
-
     pushToMain = () => {
         this.props.history.push('/');
     };
 
     render() {
-        const { burgerInfomation } = this.state;
+        const { orders, loading } = this.props;
 
         const errorHandler = (
             <ErrorHanlder>
@@ -65,18 +47,20 @@ class Orders extends Component {
             </ErrorHanlder>
         );
 
-        if (!burgerInfomation) {
-            return this.state.LoadingError ? errorHandler : <Loader />;
+        if (loading) {
+            return <Loader />;
         }
 
-        const userOrders = Object.keys(burgerInfomation).map(order => {
+        if (!orders) {
+            return errorHandler;
+        }
+
+        const userOrders = Object.keys(orders).map(order => {
             return (
                 <div key={order} className="one-order">
-                    <div className="order-price">
-                        Burger Price: {burgerInfomation[order].price}
-                    </div>
+                    <div className="order-price">Burger Price: {orders[order].price}</div>
                     <Order
-                        ingredients={burgerInfomation[order].ingredients}
+                        ingredients={orders[order].ingredients}
                         clicked={() => this.removeOrderHandler(order)}
                         orderRemoveError={this.orderRemoveErrorHandler}
                     />
@@ -91,4 +75,21 @@ class Orders extends Component {
     }
 }
 
-export default Orders;
+const mapStateToProps = state => {
+    return {
+        orders: state.orders,
+        loading: state.loading
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        getOrders: () => dispatch(fetchOrdersToState()),
+        removeOrder: id => dispatch(removeOrder(id))
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Orders);

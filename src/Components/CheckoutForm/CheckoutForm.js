@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from '../../Axios/Axios';
 import { connect } from 'react-redux';
-import * as actionType from '../../Store/actions';
+import { clearState } from '../../Store/actions';
 
 import Button from '../UI/Button/Button';
 import ErrorHanlder from '../UI/ErrorHandler/ErrorHandler';
@@ -138,7 +138,7 @@ const mapStateToProps = state => {
 
 const mapDispathToProps = dispatch => {
     return {
-        clearIngredients: () => dispatch({ type: actionType.CLEAR_STATE })
+        clearIngredients: () => dispatch(clearState())
     };
 };
 
