@@ -14,18 +14,18 @@ export const loaded = () => {
     };
 };
 
-export const removeOrder = id => {
+export const removeOrder = (id, token) => {
     return dispatch => {
         axios.delete(`/orders/${id}.json`).then(res => {
-            dispatch(fetchOrdersToState());
+            dispatch(fetchOrdersToState(token));
         });
     };
 };
 
-export const fetchOrdersToState = () => {
+export const fetchOrdersToState = token => {
     return dispatch => {
         axios
-            .get('/orders.json')
+            .get('/orders.json?auth=' + token)
             .then(response => {
                 dispatch(getOrders(response.data));
             })

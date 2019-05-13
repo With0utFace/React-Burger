@@ -1,0 +1,26 @@
+.signup-form {
+    width: 100%;
+    max-width: 500px;
+    margin: 30px auto 0 auto;
+    font-family: sans-serif;
+
+    input {
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid #ccc;
+        padding: 10px 15px;
+        transition: 0.4s;
+    }
+
+    input:hover {
+        border-bottom: 1px solid rgb(139, 134, 134);
+    }
+}
+
+input.error-input {
+    border-bottom: 1px solid salmon !important;
+}
+
+input.validated-input {
+    border-bottom: 1px solid rgb(27, 192, 27) !important;
+}

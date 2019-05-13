@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import Layout from '../../Components/Layout/Layout';
 
 import BurgerBuilder from '../BurgerBuilder/BurgerBuilder';
 import CheckoutForm from '../../Components/CheckoutForm/CheckoutForm';
 import Orders from '../Orders/Orders';
+import SignUpForm from '../../Components/SignUp/SignUp';
 
 import Header from '../../Components/Header/Header';
 
@@ -21,10 +23,17 @@ class App extends Component {
                     <Route path="/" exact component={BurgerBuilder} />
                     <Route path="/orders" component={Orders} />
                     <Route path="/checkout" component={CheckoutForm} />
+                    <Route path="/signup" component={SignUpForm} />
                 </Layout>
             </BrowserRouter>
         );
     }
 }
 
-export default App;
+const mapStateToProps = state => {
+    return {
+        isLogged: state.auth.token !== null
+    };
+};
+
+export default connect(mapStateToProps)(App);

@@ -17,11 +17,11 @@ class Orders extends Component {
     };
 
     componentDidMount() {
-        this.props.getOrders();
+        this.props.getOrders(this.props.token);
     }
 
     removeOrderHandler = id => {
-        this.props.removeOrder(id);
+        this.props.removeOrder(id, this.props.token);
     };
 
     orderRemoveErrorHandler = () => {
@@ -58,7 +58,9 @@ class Orders extends Component {
         const userOrders = Object.keys(orders).map(order => {
             return (
                 <div key={order} className="one-order">
-                    <div className="order-price">Burger Price: {orders[order].price}</div>
+                    <div className="order-price">
+                        Burger Price: {orders[order].price}
+                    </div>
                     <Order
                         ingredients={orders[order].ingredients}
                         clicked={() => this.removeOrderHandler(order)}
@@ -77,15 +79,16 @@ class Orders extends Component {
 
 const mapStateToProps = state => {
     return {
-        orders: state.orders,
-        loading: state.loading
+        orders: state.orders.orders,
+        loading: state.burger.loading,
+        token: state.auth.token
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        getOrders: () => dispatch(fetchOrdersToState()),
-        removeOrder: id => dispatch(removeOrder(id))
+        getOrders: token => dispatch(fetchOrdersToState(token)),
+        removeOrder: (id, token) => dispatch(removeOrder(id, token))
     };
 };
 

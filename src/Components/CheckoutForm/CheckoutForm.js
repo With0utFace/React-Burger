@@ -68,7 +68,7 @@ class CheckoutForm extends Component {
         }
         if (this.state.validated && this.props.ingredients.length > 0) {
             axios
-                .post('/orders.json/', {
+                .post(`orders.json?auth=${this.props.token}`, {
                     ingredients: this.props.ingredients,
                     customer: this.state.customerInformation,
                     price: this.props.price
@@ -90,7 +90,9 @@ class CheckoutForm extends Component {
         if (noIngredients) {
             return (
                 <ErrorHanlder>
-                    <p>Sorry but you can't order a burger, without ingredients</p>
+                    <p>
+                        Sorry but you can't order a burger, without ingredients
+                    </p>
                     <Button type="primary" clicked={this.pushToMain}>
                         go back and add some
                     </Button>
@@ -131,8 +133,9 @@ class CheckoutForm extends Component {
 
 const mapStateToProps = state => {
     return {
-        ingredients: state.ingredients,
-        price: state.totalPrice
+        ingredients: state.burger.ingredients,
+        price: state.burger.totalPrice,
+        token: state.auth.token
     };
 };
 

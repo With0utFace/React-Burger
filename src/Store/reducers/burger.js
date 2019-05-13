@@ -4,7 +4,6 @@ import updatedState from '../utility-functions';
 const initialState = {
     ingredients: [],
     totalPrice: 0,
-    orders: null,
     loading: true
 };
 
@@ -34,8 +33,6 @@ const reducer = (state = initialState, action) => {
             return updatedState(state, {
                 ingredients: []
             });
-        case actionTypes.GET_ORDERS:
-            return updatedState(state, { orders: action.ingredients });
         case actionTypes.LOADED:
             return updatedState(state, { loading: false });
         default:
