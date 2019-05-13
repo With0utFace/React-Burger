@@ -5,7 +5,7 @@ import Layout from '../../Components/Layout/Layout';
 
 import BurgerBuilder from '../BurgerBuilder/BurgerBuilder';
 import CheckoutForm from '../../Components/CheckoutForm/CheckoutForm';
-import Orders from '../../Components/Orders/Orders';
+import Orders from '../Orders/Orders';
 
 import Header from '../../Components/Header/Header';
 

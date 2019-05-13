@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchOrdersToState, removeOrder } from '../../Store/actions/';
+import { fetchOrdersToState, removeOrder } from '../../Store/actions';
 
-import Loader from '../UI/Loader/Loader';
-import ErrorHanlder from '../UI/ErrorHandler/ErrorHandler';
-import ErrorTooltip from '../UI/ErrorTooltip/ErrorTooltip';
-import Button from '../UI/Button/Button';
+import Loader from '../../Components/UI/Loader/Loader';
+import ErrorHanlder from '../../Components/UI/ErrorHandler/ErrorHandler';
+import ErrorTooltip from '../../Components/UI/ErrorTooltip/ErrorTooltip';
+import Button from '../../Components/UI/Button/Button';
 
-import Order from './OneOrder/OneOrder';
+import Order from '../../Components/OneOrder/OneOrder';
 
 import '../../Styles/Components/Orders.scss';
 
