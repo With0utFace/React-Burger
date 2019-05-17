@@ -30,6 +30,12 @@ export const logOut = () => {
     };
 };
 
+export const getLocalToken = () => {
+    return {
+        type: actionType.GET_LOCAL_TOKEN
+    };
+};
+
 export const auth = (email, password, isRegister) => {
     return dispatch => {
         dispatch(signUpStart());

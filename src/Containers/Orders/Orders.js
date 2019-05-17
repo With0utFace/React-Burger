@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchOrdersToState, removeOrder } from '../../Store/actions';
+import {
+    fetchOrdersToState,
+    removeOrder,
+    getLocalToken
+} from '../../Store/actions';
 
 import Loader from '../../Components/UI/Loader/Loader';
 import ErrorHanlder from '../../Components/UI/ErrorHandler/ErrorHandler';
@@ -18,17 +22,11 @@ class Orders extends Component {
 
     componentDidMount() {
         this.props.getOrders(this.props.token);
+        this.props.token();
     }
 
     removeOrderHandler = id => {
         this.props.removeOrder(id, this.props.token);
-    };
-
-    orderRemoveErrorHandler = () => {
-        this.setState({ activeError: true });
-        setTimeout(() => {
-            this.setState({ activeError: false });
-        }, 3000);
     };
 
     pushToMain = () => {
@@ -64,7 +62,7 @@ class Orders extends Component {
                     <Order
                         ingredients={orders[order].ingredients}
                         clicked={() => this.removeOrderHandler(order)}
-                        orderRemoveError={this.orderRemoveErrorHandler}
+                        orderRemoveError={() => {}}
                     />
                     <ErrorTooltip isActive={this.state.activeError}>
                         Sorry you can't remove ingriendts from active orders
@@ -80,7 +78,7 @@ class Orders extends Component {
 const mapStateToProps = state => {
     return {
         orders: state.orders.orders,
-        loading: state.burger.loading,
+        loading: state.orders.loading,
         token: state.auth.token
     };
 };
@@ -88,7 +86,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         getOrders: token => dispatch(fetchOrdersToState(token)),
-        removeOrder: (id, token) => dispatch(removeOrder(id, token))
+        removeOrder: (id, token) => dispatch(removeOrder(id, token)),
+        token: () => dispatch(getLocalToken())
     };
 };
 

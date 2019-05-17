@@ -10,3 +10,4 @@ export const SIGNIN = 'SIGNIN';
 export const SIGNIN_ERROR = 'SIGNUP_ERROR';
 export const HIDE_ERROR = 'HIDE_ERROR';
 export const LOGOUT = 'LOGOUT';
+export const GET_LOCAL_TOKEN = 'GET_LOCAL_TOKEN';

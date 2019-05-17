@@ -34,6 +34,10 @@ class SignUp extends Component {
             return userData[el] === '';
         });
 
+        if (validatedInputs.length === 0) {
+            this.setState({ validated: true });
+        }
+
         const prevState = { ...userData };
         const validation = this.formValidationHandler(event.target.type);
         if (!event.target.value.match(validation)) {
@@ -47,9 +51,7 @@ class SignUp extends Component {
             this.setState({ userData: prevState });
         }
 
-        if (validatedInputs.length === 0) {
-            this.setState({ validated: true });
-        }
+        console.log(validatedInputs);
     };
 
     formValidationHandler(type) {
@@ -77,10 +79,8 @@ class SignUp extends Component {
 
         const { email, password } = this.state.userData;
 
-        if (this.state.signUp && this.state.validated) {
-            this.props.auth(email, password, true);
-        } else {
-            this.props.auth(email, password, false);
+        if (this.state.validated) {
+            this.props.auth(email, password, this.state.signUp);
         }
     };
 

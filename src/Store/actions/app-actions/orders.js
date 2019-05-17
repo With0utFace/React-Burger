@@ -16,7 +16,7 @@ export const loaded = () => {
 
 export const removeOrder = (id, token) => {
     return dispatch => {
-        axios.delete(`/orders/${id}.json`).then(res => {
+        axios.delete(`/orders/${id}.json?auth=${token}`).then(res => {
             dispatch(fetchOrdersToState(token));
         });
     };
@@ -24,13 +24,9 @@ export const removeOrder = (id, token) => {
 
 export const fetchOrdersToState = token => {
     return dispatch => {
-        axios
-            .get('/orders.json?auth=' + token)
-            .then(response => {
-                dispatch(getOrders(response.data));
-            })
-            .then(res => {
-                dispatch(loaded());
-            });
+        dispatch(loaded());
+        axios.get('/orders.json?auth=' + token).then(response => {
+            dispatch(getOrders(response.data));
+        });
     };
 };

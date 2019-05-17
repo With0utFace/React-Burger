@@ -11,4 +11,4 @@ export {
     fetchOrdersToState
 } from './app-actions/orders';
 
-export { auth, logOut } from './app-actions/auth';
+export { auth, logOut, getLocalToken } from './app-actions/auth';

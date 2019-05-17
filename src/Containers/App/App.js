@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
+import * as action from '../../Store/actions/';
 
 import Layout from '../../Components/Layout/Layout';
 
@@ -14,6 +15,9 @@ import Header from '../../Components/Header/Header';
 import '../../Styles/Containers/App.scss';
 
 class App extends Component {
+    componentDidMount() {
+        this.props.token();
+    }
     render() {
         return (
             <BrowserRouter>
@@ -36,4 +40,13 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => {
+    return {
+        token: () => dispatch(action.getLocalToken())
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(App);

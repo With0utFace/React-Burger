@@ -22,8 +22,13 @@ const reducer = (state = initialState, action) => {
                 error: true
             });
         case actionTypes.LOGOUT:
+            window.localStorage.clear();
             return updatedState(state, {
                 token: null
+            });
+        case actionTypes.GET_LOCAL_TOKEN:
+            return updatedState(state, {
+                token: window.localStorage.getItem('token')
             });
         default:
             return state;
