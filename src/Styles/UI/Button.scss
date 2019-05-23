@@ -1,61 +1,62 @@
 .component-btn {
-    border: 1px solid transparent;
-    padding: 10px 40px;
-    background-color: #fff;
-    text-transform: uppercase;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: 0.4s;
-    cursor: pointer;
-    margin: 20px 20px 20px 0;
+  border: 1px solid transparent;
+  padding: 10px 40px;
+  background-color: #fff;
+  text-transform: uppercase;
+  border-radius: 7px;
+  font-weight: bold;
+  transition: 0.4s;
+  cursor: pointer;
+  margin: 20px 20px 20px 0;
+  font-family: "Kodchasan", sans-serif;
 }
 
 .success {
-    border: 1px solid rgb(63, 180, 63);
-    color: rgb(63, 180, 63);
+  border: 1px solid rgb(63, 180, 63);
+  color: rgb(63, 180, 63);
 
-    &:hover {
-        background-color: rgb(63, 180, 63);
-        color: #fff;
-    }
+  &:hover {
+    background-color: rgb(63, 180, 63);
+    color: #fff;
+  }
 }
 
 .ingredient-btn {
-    border: 1px solid rgb(189, 123, 36);
-    color: rgb(189, 123, 36);
+  border: 1px solid rgb(233, 165, 102);
+  color: rgb(233, 165, 102);
 
-    &:hover {
-        background-color: rgb(189, 123, 36);
-        color: #fff;
-    }
+  &:hover {
+    background-color: rgb(233, 165, 102);
+    color: #fff;
+  }
 }
 
 .danger {
-    border: 1px solid rgb(209, 23, 23);
-    color: rgb(209, 23, 23);
+  border: 1px solid rgb(209, 23, 23);
+  color: rgb(209, 23, 23);
 
-    &:hover {
-        background-color: rgb(209, 23, 23);
-        color: #fff;
-    }
+  &:hover {
+    background-color: rgb(209, 23, 23);
+    color: #fff;
+  }
 }
 
 .primary {
-    border: 1px solid rgb(75, 75, 224);
-    color: rgb(75, 75, 224);
+  border: 1px solid rgb(75, 75, 224);
+  color: rgb(75, 75, 224);
 
-    &:hover {
-        background-color: rgb(75, 75, 224);
-        color: #fff;
-    }
+  &:hover {
+    background-color: rgb(75, 75, 224);
+    color: #fff;
+  }
 }
 
 .component-btn:disabled {
-    cursor: not-allowed;
-    border: 1px solid rgb(148, 143, 143);
-    color: rgb(148, 143, 143);
+  cursor: not-allowed;
+  border: 1px solid rgb(148, 143, 143);
+  color: rgb(148, 143, 143);
 
-    &:hover {
-        background-color: #fff;
-    }
+  &:hover {
+    background-color: #fff;
+  }
 }

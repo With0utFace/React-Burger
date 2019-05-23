@@ -1,28 +1,29 @@
 .check-out-form {
+  width: 100%;
+  margin-top: 50px;
+  text-align: center;
+  padding: 0 15px;
+
+  form {
     width: 100%;
-    margin-top: 50px;
+    max-width: 600px;
+    margin: 0 auto;
     text-align: center;
 
-    form {
-        width: 40%;
-        margin: 0 auto;
-        text-align: center;
-
-        input {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            width: 100%;
-            display: block;
-            margin: 10px 0;
-        }
+    input {
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid #ccc;
+      padding: 10px 15px;
+      transition: 0.4s;
     }
+  }
 }
 
 .check-out-form input.error-input {
-    border: 1px solid salmon;
+  border-bottom: 1px solid salmon;
 }
 
 .check-out-form input.validated-input {
-    border: 1px solid rgb(27, 192, 27);
+  border-bottom: 1px solid rgb(27, 192, 27);
 }

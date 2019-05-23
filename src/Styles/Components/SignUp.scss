@@ -1,26 +1,35 @@
 .signup-form {
+  width: 100%;
+  max-width: 500px;
+  margin: 30px auto 0 auto;
+  font-family: sans-serif;
+  padding: 0 15px;
+
+  input {
     width: 100%;
-    max-width: 500px;
-    margin: 30px auto 0 auto;
-    font-family: sans-serif;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 15px;
+    transition: 0.4s;
+  }
 
-    input {
-        width: 100%;
-        border: none;
-        border-bottom: 1px solid #ccc;
-        padding: 10px 15px;
-        transition: 0.4s;
-    }
-
-    input:hover {
-        border-bottom: 1px solid rgb(139, 134, 134);
-    }
+  input:hover {
+    border-bottom: 1px solid rgb(139, 134, 134);
+  }
 }
 
 input.error-input {
-    border-bottom: 1px solid salmon !important;
+  border-bottom: 1px solid salmon !important;
 }
 
 input.validated-input {
-    border-bottom: 1px solid rgb(27, 192, 27) !important;
+  border-bottom: 1px solid rgb(27, 192, 27) !important;
+}
+
+@media screen and (max-width: 600px) {
+  .signup-form button {
+    padding: 5px 20px;
+    font-size: 0.75rem;
+    margin: 25px 10px 10px 0;
+  }
 }
