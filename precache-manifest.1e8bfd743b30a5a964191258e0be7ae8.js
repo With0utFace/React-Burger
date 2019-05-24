@@ -12,7 +12,7 @@ self.__precacheManifest = [
     "url": "/React-Burger/static/js/runtime~main.884a4de1.js"
   },
   {
-    "revision": "f083db327d871587bdf7",
+    "revision": "fc43a4bd5ce730dad64f",
     "url": "/React-Burger/static/js/main.1376cc84.chunk.js"
   },
   {
@@ -20,11 +20,11 @@ self.__precacheManifest = [
     "url": "/React-Burger/static/js/2.fdb0033c.chunk.js"
   },
   {
-    "revision": "f083db327d871587bdf7",
-    "url": "/React-Burger/static/css/main.2cdca038.chunk.css"
+    "revision": "fc43a4bd5ce730dad64f",
+    "url": "/React-Burger/static/css/main.e92f42b1.chunk.css"
   },
   {
-    "revision": "0e4de31175bf7d4ce75e37e356d96584",
+    "revision": "455bc6289bbcc15204363215e278971c",
     "url": "/React-Burger/index.html"
   }
 ];
