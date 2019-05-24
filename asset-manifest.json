@@ -1,15 +1,15 @@
 {
-  "main.css": "/burger-builder/static/css/main.441382db.chunk.css",
-  "main.js": "/burger-builder/static/js/main.735509cf.chunk.js",
-  "main.js.map": "/burger-builder/static/js/main.735509cf.chunk.js.map",
-  "runtime~main.js": "/burger-builder/static/js/runtime~main.ad75294f.js",
-  "runtime~main.js.map": "/burger-builder/static/js/runtime~main.ad75294f.js.map",
-  "static/js/2.fdb0033c.chunk.js": "/burger-builder/static/js/2.fdb0033c.chunk.js",
-  "static/js/2.fdb0033c.chunk.js.map": "/burger-builder/static/js/2.fdb0033c.chunk.js.map",
-  "index.html": "/burger-builder/index.html",
-  "precache-manifest.dd7d5304c54dd8be1729a3b7d549a9a3.js": "/burger-builder/precache-manifest.dd7d5304c54dd8be1729a3b7d549a9a3.js",
-  "service-worker.js": "/burger-builder/service-worker.js",
-  "static/css/main.441382db.chunk.css.map": "/burger-builder/static/css/main.441382db.chunk.css.map",
-  "static/media/Burger.scss": "/burger-builder/static/media/burger-sprite.5e75f81a.png",
-  "static/media/logo.jpg": "/burger-builder/static/media/logo.fab25a65.jpg"
+  "main.css": "/React-Burger/static/css/main.04957056.chunk.css",
+  "main.js": "/React-Burger/static/js/main.735509cf.chunk.js",
+  "main.js.map": "/React-Burger/static/js/main.735509cf.chunk.js.map",
+  "runtime~main.js": "/React-Burger/static/js/runtime~main.884a4de1.js",
+  "runtime~main.js.map": "/React-Burger/static/js/runtime~main.884a4de1.js.map",
+  "static/js/2.fdb0033c.chunk.js": "/React-Burger/static/js/2.fdb0033c.chunk.js",
+  "static/js/2.fdb0033c.chunk.js.map": "/React-Burger/static/js/2.fdb0033c.chunk.js.map",
+  "index.html": "/React-Burger/index.html",
+  "precache-manifest.0e3c527fc64a9fff924eda44c2a251ea.js": "/React-Burger/precache-manifest.0e3c527fc64a9fff924eda44c2a251ea.js",
+  "service-worker.js": "/React-Burger/service-worker.js",
+  "static/css/main.04957056.chunk.css.map": "/React-Burger/static/css/main.04957056.chunk.css.map",
+  "static/media/Burger.scss": "/React-Burger/static/media/burger-sprite.5e75f81a.png",
+  "static/media/logo.jpg": "/React-Burger/static/media/logo.fab25a65.jpg"
 }
