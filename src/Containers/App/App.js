@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as action from '../../Store/actions/';
 
@@ -20,7 +20,7 @@ class App extends Component {
     }
     render() {
         return (
-            <BrowserRouter>
+            <Router basename="React-Burger">
                 <Header />
 
                 <Layout>
@@ -29,7 +29,7 @@ class App extends Component {
                     <Route path="/checkout" component={CheckoutForm} />
                     <Route path="/signup" component={SignUpForm} />
                 </Layout>
-            </BrowserRouter>
+            </Router>
         );
     }
 }
