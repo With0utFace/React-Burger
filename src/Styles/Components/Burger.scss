@@ -2,56 +2,49 @@
     width: 100%;
     max-width: 500px;
     min-height: 1px;
-    max-height: 450px;
+    max-height: 85vh;
     text-align: center;
     overflow: auto;
 }
 
 .bread-bottom {
-    background-image: url('../../Assets/burger-sprite.png');
-    background-position: left -144px;
+    background-image: url('../../Assets/bread-bottom.png');
     padding-top: 8.283%;
     max-height: 40px;
 }
 
 .bread {
-    background-image: url('../../Assets/burger-sprite.png');
-    background-position: left -104px;
+    background-image: url('../../Assets/bread-middle.png');
     padding-top: 6.213%;
     max-height: 30px;
 }
 
 .bread-top {
-    background-image: url('../../Assets/burger-sprite.png');
-    background-position: left 3px;
+    background-image: url('../../Assets/bread-top.png');
     padding-top: 20.705%;
     max-height: 100px;
 }
 
 .meat {
-    background-image: url('../../Assets/burger-sprite.png');
-    background-position: left -248px;
+    background-image: url('../../Assets/meat.png');
     padding-top: 8.283%;
     max-height: 40px;
 }
 
 .cheese {
-    background-image: url('../../Assets/burger-sprite.png');
-    background-position: left -219px;
+    background-image: url('../../Assets/cheese.png');
     padding-top: 3.108%;
     max-height: 15px;
 }
 
 .salad {
-    background-image: url('../../Assets/burger-sprite.png');
-    background-position: left -298px;
+    background-image: url('../../Assets/salad.png');
     padding-top: 5.385%;
     max-height: 26px;
 }
 
 .bacon {
-    background-image: url('../../Assets/burger-sprite.png');
-    background-position: left -194px;
+    background-image: url('../../Assets/bacon.png');
     padding-top: 3.108%;
     max-height: 15px;
 }
@@ -62,5 +55,6 @@
     margin: 4px auto;
     cursor: pointer;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
+    background-position: center center;
 }
