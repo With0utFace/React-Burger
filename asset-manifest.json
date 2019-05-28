@@ -1,15 +1,15 @@
 {
-  "main.css": "/React-Burger/static/css/main.e1766111.chunk.css",
-  "main.js": "/React-Burger/static/js/main.ff4d5ef0.chunk.js",
-  "main.js.map": "/React-Burger/static/js/main.ff4d5ef0.chunk.js.map",
+  "main.css": "/React-Burger/static/css/main.a7a50f12.chunk.css",
+  "main.js": "/React-Burger/static/js/main.735509cf.chunk.js",
+  "main.js.map": "/React-Burger/static/js/main.735509cf.chunk.js.map",
   "runtime~main.js": "/React-Burger/static/js/runtime~main.884a4de1.js",
   "runtime~main.js.map": "/React-Burger/static/js/runtime~main.884a4de1.js.map",
   "static/js/2.fdb0033c.chunk.js": "/React-Burger/static/js/2.fdb0033c.chunk.js",
   "static/js/2.fdb0033c.chunk.js.map": "/React-Burger/static/js/2.fdb0033c.chunk.js.map",
   "index.html": "/React-Burger/index.html",
-  "precache-manifest.6b7807e20314e1278742bd4ea2116ddf.js": "/React-Burger/precache-manifest.6b7807e20314e1278742bd4ea2116ddf.js",
+  "precache-manifest.badb159cacf0792dcbe5e0dafe1cb255.js": "/React-Burger/precache-manifest.badb159cacf0792dcbe5e0dafe1cb255.js",
   "service-worker.js": "/React-Burger/service-worker.js",
-  "static/css/main.e1766111.chunk.css.map": "/React-Burger/static/css/main.e1766111.chunk.css.map",
-  "static/media/Burger.scss": "/React-Burger/static/media/burger-sprite.5e75f81a.png",
-  "static/media/logo.jpg": "/React-Burger/static/media/logo.fab25a65.jpg"
+  "static/css/main.a7a50f12.chunk.css.map": "/React-Burger/static/css/main.a7a50f12.chunk.css.map",
+  "static/media/logo.jpg": "/React-Burger/static/media/logo.fab25a65.jpg",
+  "static/media/Burger.scss": "/React-Burger/static/media/meat.97ae7281.png"
 }
